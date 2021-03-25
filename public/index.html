@@ -7,10 +7,17 @@
     <script type="" src="./components/kj-button.js"></script>
     <script type="text/javascript" src="./components/kj-input.js"></script>
 
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Hola Mundo!</h1>
     <kj-button onclick="alert('saludos')">boton</kj-button>
+    <kj-button onclick="alert('saludos')" status="red">boton</kj-button>
     <hr>
     <kj-input label="Email" type="text" error-message="This field is required!" required></kj-input>
 

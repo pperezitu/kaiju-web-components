@@ -1,5 +1,5 @@
-const template = document.createElement("template");
-template.innerHTML = `
+const template3 = document.createElement("template");
+template3.innerHTML = `
     <style> 
         :host { 
             margin-bottom: 10px; 
@@ -12,17 +12,35 @@ template.innerHTML = `
             outline-color: red; 
         } 
         .form-field { 
-            display: table; 
-        } 
-        label, 
+            display: block; 
+        }
         input { 
-            display: table-cell; 
+          display: block;
+          width: 100%;
+          padding: 0.375rem 0.75rem;
+          font-family: Mont;
+          font-size: 13px;
+          font-weight: 400;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+          box-sizing: border-box;
+          height: 50px; 
         } 
         label { 
-            padding-right: 10px; 
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          font-size: 15px;
+          color: #000;
         } 
         .error { 
-            display: block; 
+          display: block;
+          margin-top: 10px;
+          font-size: 13px;
+          font-style: italic; 
         } 
         .hidden { 
             display: none; 
@@ -39,13 +57,14 @@ template.innerHTML = `
             <input /> 
             <slot></slot> 
             <span class="error hidden"></span> 
-    </div>`;
+    </div>
+  `;
 
 class kaijuInput extends HTMLElement {
   constructor() {
     super();
     this._shadowRoot = this.attachShadow({ mode: "open" });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot.appendChild(template3.content.cloneNode(true));
     this.$label = this.shadowRoot.querySelector("label");
     this.$input = this.shadowRoot.querySelector("input");
     this.$error = this.shadowRoot.querySelector(".error");
